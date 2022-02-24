@@ -19,4 +19,16 @@
 module.exports = (on, config) => {
   // `on` is used to hook into various events Cypress emits
   // `config` is the resolved Cypress config
+
+  // this shows up in the config correctly
+  config.responseTimeout = 1337;
+
+  // this does not show up in the config
+  // however - it is set, run the "todo.spec.js" test to verify
+  config.retries = {
+    runMode: 815,
+    openMode: 4711
+  }
+
+  return config;
 }
